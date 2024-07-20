@@ -5,13 +5,13 @@ import { DatabaseService } from "src/database/database.service";
 export class FileRepository {
   constructor(private readonly prisma: DatabaseService){} 
 
-  async saveText(fileName: string, text: string, userId: number, workerId: string) {
+  async saveText(fileName: string, text: string, userId: number, jobId: string) {
     return await this.prisma.texts.create({
       data: {
         fileName, 
         text,
         userId,
-        workerId
+        jobId
       }
     })
   }

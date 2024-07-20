@@ -14,7 +14,6 @@ export class AuthUserService {
       } else {
         await this.authRepository.createUser(email, token);
       }
-
       return { success: true, message: 'User authentication succeded.' };
     } catch (error) {
       return { success: false, message: 'Internal Server Error' };
