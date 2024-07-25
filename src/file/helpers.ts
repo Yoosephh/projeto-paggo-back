@@ -26,7 +26,7 @@ export async function tesseract(filePath: string): Promise<{jobId, text}> {
     'spa',
     'jpn',
     'deu',
-  ], 3, {langPath: '/src/file/dataTesseract'});  
+  ], 3);  
   const response = await worker.recognize(filePath);
   const {jobId, data:{text}} = response;
   await worker.terminate();

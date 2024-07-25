@@ -24,15 +24,14 @@ export class FileController {
   }
 ))
 
-  async uploadFile(@UploadedFile() file: Express.Multer.File, @Headers() token: string) {
-    console.log(file)
+  async uploadFile(@UploadedFile() file: Express.Multer.File, @Headers() authorization: Object) {
+    const token = authorization['authorization'].split(' ')[1];
     if (!file) {
       throw new BadRequestException('File is required');
     }
-    if (!token) {
+    if (!authorization) {
       throw new BadRequestException('Token is required');
     }
-
     const user = await this.authService.validateToken(token);
     if(!user) {
       throw new BadRequestException('Token is invalid');

@@ -1,11 +1,11 @@
 import { Body, Controller, Post } from '@nestjs/common';
 import { AuthUserService } from './auth-user.service';
 
-@Controller('auth-user')
+@Controller('auth')
 export class AuthUserController {
   constructor(private readonly authService: AuthUserService) {}
 
-  @Post('sign-in')
+  @Post('signin')
   async authenticateUser(@Body() body: { email: string; token: string }): Promise<{ success: boolean; message: string }> {
     const { email, token } = body;
 

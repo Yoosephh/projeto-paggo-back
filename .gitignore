@@ -12,8 +12,12 @@ yarn-debug.log*
 yarn-error.log*
 lerna-debug.log*
 
+/src/file/uploads/*
+
 # OS
 .DS_Store
+
+*.traineddata
 
 # Tests
 /coverage

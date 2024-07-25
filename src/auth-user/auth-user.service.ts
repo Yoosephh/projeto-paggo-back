@@ -20,10 +20,12 @@ export class AuthUserService {
     }
   }
 
-  async validateToken(authorization: string) {
-    const token = authorization.split(' ')[1];
+  async validateToken(token: string) {
+
+    if(!token) {
+      throw new UnauthorizedException('Invalid token');
+    }
     const user = await this.authRepository.findUserByToken(token);
-    
     if (!user) {
       throw new UnauthorizedException('Invalid token.');
     }
