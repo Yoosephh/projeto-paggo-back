@@ -37,6 +37,6 @@ export class FileController {
       throw new BadRequestException('Token is invalid');
     }
     const text = await this.fileService.createFile(file, user);
-    return {text};
+    return text;
   }
 }

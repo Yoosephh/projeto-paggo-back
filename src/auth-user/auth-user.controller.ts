@@ -1,4 +1,4 @@
-import { Body, Controller, Post } from '@nestjs/common';
+import { Body, Controller, Post, UnauthorizedException } from '@nestjs/common';
 import { AuthUserService } from './auth-user.service';
 
 @Controller('auth')
@@ -10,7 +10,7 @@ export class AuthUserController {
     const { email, token } = body;
 
     if (!email || !token) {
-      return { success: false, message: "Email or token are missing." };
+      throw new UnauthorizedException("Email or token are missing!");
     }
 
     return await this.authService.authenticateUser(email, token);
