@@ -1,7 +1,8 @@
 <h1 align="center">Paggo.app</h1>
 <h3>Uma API capaz de extrair textos de imagens, com autenticação e persistência.</h3>
 
-### Deploy URL (API): 
+# Deploy URL (API): 
+A API está disponível através de uma instância EC2. Link:https://paggoapp.ddns.net
 
 ## Instalação
 
